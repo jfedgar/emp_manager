@@ -1,12 +1,12 @@
+import firebase from 'firebase';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 // this is considered middleware, so we must also include applyMiddleware from redux
 //   and pass it into createStore
 import ReduxThunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
-import firebase from 'firebase';
 import reducers from './reducers';
-import LoginForm from './components/LoginForm';
+import Router from './Router';
 
 class App extends Component {
   componentDidMount() {
@@ -23,11 +23,12 @@ class App extends Component {
   }
 
   render() {
-    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     //the second argument to createStore is any initial state that we want to apply to our store
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+
     return (
       <Provider store={store}>
-        <LoginForm />
+        <Router />
       </Provider>
     );
   }

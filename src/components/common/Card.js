@@ -28,7 +28,6 @@ const styles = {
     marginRight: 5,
     marginTop: 10,
     backgroundColor: '#fff',
-    flex: 1
   }
 };
 

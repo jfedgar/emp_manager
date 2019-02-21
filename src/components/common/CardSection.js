@@ -2,8 +2,10 @@ import React from 'react';
 import { View } from 'react-native';
 
 const CardSection = (props) => {
+  // cool react native trick: style most to the right will overwrite any style
+  // to the left when you pass an array into the style prop
   return (
-    <View style={styles.containerStyle}>
+    <View style={[styles.containerStyle, props.style]}>
       {props.children}
     </View>
   );

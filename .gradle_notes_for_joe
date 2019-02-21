@@ -1,0 +1,5 @@
+I updated android/gradle/wrapper/gradle-wrapper.properties to use gradle 5.0
+instead of 4.7
+
+Then I commented out: task wrapper(type: wrapper) { ... } (the whole block)
+in android/build.gradle

@@ -1,16 +1,22 @@
 import {
   EMAIL_CHANGED,
-  PASSWORD_CHANGED
+  PASSWORD_CHANGED,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL,
+  LOGIN_USER_START
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  email: '',
-  password: ''
+  email: 'Test@test.com',
+  password: 'password',
+  user: null,
+  error: '',
+  loading: false
 };
 
 export default (state = INITIAL_STATE, action) => {
-  console.log(action.type);
-  console.log(state);
+  //console.log(action.type);
+  //console.log(state);
   switch (action.type) {
     case EMAIL_CHANGED:
       // ...state takes all props and values from state and appends them to this new object
@@ -20,6 +26,17 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, email: action.payload };
     case PASSWORD_CHANGED:
       return { ...state, password: action.payload };
+    case LOGIN_USER_START:
+      return { ...state, error: '', loading: true };
+    case LOGIN_USER_SUCCESS:
+      // here we are resetting every piece of state to its initial state except 'user'
+      return {
+        ...state,
+        ...INITIAL_STATE,
+        user: action.payoad,
+      };
+    case LOGIN_USER_FAIL:
+      return { ...state, error: 'Authentication Failed.', loading: false };
     default:
       return state;
   }
