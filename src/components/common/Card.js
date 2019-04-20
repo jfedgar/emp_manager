@@ -3,11 +3,7 @@ import { View } from 'react-native';
 
 const Card = (props) => {
   return (
-    // props.children refers all child elements that existed inside the call to
-    // <Card><Text>Foo</Text></Card> (<Text>Foo</Text> in this case)
-    // in other words, the parent (AlbumDetail) will define props.children just
-    // as it does with props
-    <View style={styles.containerStyle}>
+    <View style={[styles.containerStyle, props.style]}>
       {props.children}
     </View>
   );

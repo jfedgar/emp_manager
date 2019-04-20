@@ -1,3 +1,6 @@
+// Demonstrates a full featured react/redux app for managing 'employees'.
+// Demonstrates routing, more redux and redux-thunk
+// Demonstrates using a modal, texting a person and using firestore
 import firebase from 'firebase';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
